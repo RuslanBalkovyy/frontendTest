@@ -19,7 +19,7 @@ function Login() {
 
     }
     const submitHandler = async () => {
-        const url = "http://localhost:3000/users/login"
+        const url = "http://3.21.127.221:3000/users/login"
         axios.post(url, login, {
             headers: {
                 "Content-Type": "application/json"

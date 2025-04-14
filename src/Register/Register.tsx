@@ -15,7 +15,7 @@ function Register() {
 
     }
     const submitHandler = () => {
-        const url = "http://localhost:3000/users";
+        const url = "http://3.21.127.221:3000/users";
 
         axios.post(url,
             register, {
