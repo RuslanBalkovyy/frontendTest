@@ -15,10 +15,13 @@ function Register() {
 
     }
     const submitHandler = () => {
-        const url = "";
-        axios.post(url, {
-            register
-        }).then(response => setMessage(response.data.message))
+        const url = "http://localhost:3000/users";
+
+        axios.post(url,
+            register, {
+            headers: { "Content-type": "application/json" }
+        }
+        ).then(response => setMessage(response.data.message))
             .catch(error => console.error(error));
     }
 

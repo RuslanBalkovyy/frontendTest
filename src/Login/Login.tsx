@@ -7,19 +7,30 @@ function Login() {
     let [message, setMessage] = useState("");
 
     const usernameHandler = (event: any) => {
+        console.log(event.target.value);
+
         setLogin({ ...login, username: event.target.value });
     }
 
     const passwordHandler = (event: any) => {
+        console.log(event.target.value);
+
         setLogin({ ...login, password: event.target.value });
 
     }
-    const submitHandler = () => {
-        const url = "";
-        axios.post(url, {
-            login
-        }).then(response => setMessage(response.data.message))
-            .catch(error => console.error(error));
+    const submitHandler = async () => {
+        const url = "http://localhost:3000/users/login"
+        axios.post(url, login, {
+            headers: {
+                "Content-Type": "application/json"
+            }
+        })
+            .then(response => {
+                setMessage(response.data.message);
+            })
+            .catch(error => {
+                console.error(error);
+            });
     }
 
 
